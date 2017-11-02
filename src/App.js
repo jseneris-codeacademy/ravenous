@@ -15,12 +15,10 @@ class App extends Component {
   }
 
   searchYelp(term, location, sortBy){
-    console.log(`Searching Yelp with ${term}, ${location}, ${sortBy}`);
-    console.log('calling search');
-    console.log(Yelp);
-    Yelp.search(term, location, sortBy);
-    console.log('back from search');
-//    .then(businesses => this.setState({businesses: businesses}));
+    Yelp.search(term, location, sortBy).then(businesses => {
+      console.log(businesses);
+      this.setState({businesses: businesses})
+    });
   }
 
   render() {
